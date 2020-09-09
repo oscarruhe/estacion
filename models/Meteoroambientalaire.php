@@ -49,7 +49,7 @@ class Meteoroambientalaire extends \yii\db\ActiveRecord
             [['fecha', 'hora'], 'required'],
             [['fecha'], 'safe'],
             [['tempAmbC', 'Humedad', 'MSNM', 'VoltajeCo', 'VoltajeOzono', 'VoltajeCO2Presente', 'PPMpercf'], 'integer'],
-            [['tempPatmos', 'patmosSnm', 'estacion_id','TempCenInt', 'RadioCo', 'PPMCo', 'RadioOzono', 'PPMOzono', 'VoltajeO3Presente', 'Reservado', 'VoltajeParticulas', 'DensidadPart'], 'number'],
+            [['tempPatmos', 'patmosSnm', 'arduino_id','TempCenInt', 'RadioCo', 'PPMCo', 'RadioOzono', 'PPMOzono', 'VoltajeO3Presente', 'Reservado', 'VoltajeParticulas', 'DensidadPart'], 'number'],
             [['hora'], 'string', 'max' => 5],
         ];
     }
@@ -80,7 +80,7 @@ class Meteoroambientalaire extends \yii\db\ActiveRecord
             'VoltajeParticulas' => 'Voltaje Particulas',
             'DensidadPart' => 'Densidad Part',
             'PPMpercf' => 'Pp Mpercf',
-            'estacion_id' => 'Estacion Id',
+            'arduino_id' => 'Arduino Id',
             'entryID' => 'Entry ID',
         ];
     }
