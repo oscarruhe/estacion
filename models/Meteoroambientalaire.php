@@ -8,7 +8,6 @@ use Yii;
  * This is the model class for table "meteoroambientalaire".
  *
  * @property string $fecha
- * @property string $hora
  * @property int|null $tempAmbC
  * @property int|null $Humedad
  * @property int|null $MSNM

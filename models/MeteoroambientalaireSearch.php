@@ -98,8 +98,7 @@ class MeteoroambientalaireSearch extends Meteoroambientalaire
             'entryID' => $this->entryID,
         ]);
 
-        $query->andFilterWhere(['like', 'hora', $this->hora])
-            ->andFilterWhere(['like', 'arduino_id', $this->arduino_id]);
+        $query->andFilterWhere(['like', 'arduino_id', $this->arduino_id]);
 
         return $dataProvider;
     }
