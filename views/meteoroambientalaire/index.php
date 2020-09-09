@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'fecha',
+            'YIR',
             'hora',
             'tempAmbC',
             'Humedad',
@@ -44,15 +44,23 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'fecha',
-            'hora',
+            
+            [
+                'label' =>"YIR",
+                'attribute' => 'YIR',
+                'value'=>function($data){
+                    //print_r($data);
+                    //die();
+                    return $data["YIR"];
+                }
+            ],
+            ['attribute'=>'arduino_id'],
             'tempAmbC',
             'Humedad',
             'PPMCo',
             'PPMOzono',
             'DensidadPart',
-            ['attribute'=>'estacion_id', ],
+            
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

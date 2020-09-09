@@ -46,11 +46,11 @@ class Meteoroambientalaire extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['fecha', 'hora'], 'required'],
+            [['fecha'], 'required'],
             [['fecha'], 'safe'],
             [['tempAmbC', 'Humedad', 'MSNM', 'VoltajeCo', 'VoltajeOzono', 'VoltajeCO2Presente', 'PPMpercf'], 'integer'],
-            [['tempPatmos', 'patmosSnm', 'arduino_id','TempCenInt', 'RadioCo', 'PPMCo', 'RadioOzono', 'PPMOzono', 'VoltajeO3Presente', 'Reservado', 'VoltajeParticulas', 'DensidadPart'], 'number'],
-            [['hora'], 'string', 'max' => 5],
+            [['tempPatmos', 'patmosSnm','TempCenInt', 'RadioCo', 'PPMCo', 'RadioOzono', 'PPMOzono', 'VoltajeO3Presente', 'Reservado', 'VoltajeParticulas', 'DensidadPart'], 'number'],
+            [['arduino_id'], 'integer'],
         ];
     }
 
@@ -61,7 +61,6 @@ class Meteoroambientalaire extends \yii\db\ActiveRecord
     {
         return [
             'fecha' => 'Fecha',
-            'hora' => 'Hora',
             'tempAmbC' => 'Temp Amb C',
             'Humedad' => 'Humedad',
             'MSNM' => 'Msnm',

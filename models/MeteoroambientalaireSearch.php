@@ -11,13 +11,15 @@ use app\models\Meteoroambientalaire;
  */
 class MeteoroambientalaireSearch extends Meteoroambientalaire
 {
+
+    public $YIR;
     /**
      * {@inheritdoc}
      */
     public function rules()
     {
         return [
-            [['fecha', 'hora', 'IPEstacion'], 'safe'],
+            [['fecha', 'hora', 'IPEstacion', "YIR"], 'safe'],
             [['tempAmbC', 'Humedad', 'MSNM', 'VoltajeCo', 'VoltajeOzono', 'VoltajeCO2Presente', 'PPMpercf', 'entryID'], 'integer'],
             [['tempPatmos', 'patmosSnm', 'TempCenInt', 'RadioCo', 'PPMCo', 'RadioOzono', 'PPMOzono', 'VoltajeO3Presente', 'Reservado', 'VoltajeParticulas', 'DensidadPart', 'arduino_id'], 'number'],
         ];
@@ -41,13 +43,27 @@ class MeteoroambientalaireSearch extends Meteoroambientalaire
      */
     public function search($params)
     {
-        $query = Meteoroambientalaire::find();
+        $query = (new \yii\db\Query())->from("datos_arduino");
 
         // add conditions that should always apply here
-        $query->select(["fecha","EXTRACT(hour from hora) hora", 'AVG(tempAmbC) tempAmbC', "AVG(Humedad) Humedad","AVG(PPMCo) PPMCo","AVG(PPMOzono) PPMOzono","AVG(DensidadPart) DensidadPart"])->groupBy("EXTRACT(hour from hora)");
+        $query->select([
+            "date_format(fecha,'%Y-%m-%d %H') as YIR", 
+            'AVG(tempAmbC) tempAmbC', 
+            "AVG(Humedad) Humedad",
+            "AVG(PPMCo) PPMCo",
+            "AVG(PPMOzono) PPMOzono",
+            "AVG(DensidadPart) DensidadPart",
+            "arduino_id"
+        ])->groupBy("YIR, arduino_id");
+
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
+
+        //$query->limit(1)->all();
+
+        //print_r($query->limit(1)->all());
+        //die();
 
         $this->load($params);
 
@@ -59,6 +75,7 @@ class MeteoroambientalaireSearch extends Meteoroambientalaire
 
         // grid filtering conditions
         $query->andFilterWhere([
+            'YIR' => $this->YIR,
             'fecha' => $this->fecha,
             'tempAmbC' => $this->tempAmbC,
             'Humedad' => $this->Humedad,

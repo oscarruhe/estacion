@@ -43,6 +43,22 @@ class MeteoroambientalaireController extends Controller
         }
     }
 
+    public function actionFormat(){
+        $data = Meteoroambientalaire::find()->where(["<>","hora","NN"])->all();
+        foreach($data as $model){
+            $model->fecha = substr($model->fecha,0,10) . " " . $model->hora . ":00";
+            $model->hora = "NN";
+            if($model->save()){
+                echo "done<br>";
+            }
+            else{
+                print_r($model->getErrors());
+                die();
+            }
+        }
+        echo "done";
+    }
+
     /**
      * {@inheritdoc}
      */
