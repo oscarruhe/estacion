@@ -24,7 +24,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'YIR',
+            [
+                'label' =>"fecha",
+                'attribute' => 'YIR',
+                'value'=>function($data){
+                    return $data["YIR"];
+                }
+            ],
             'tempAmbC',
             'Humedad',
             'PPMCo',
@@ -45,7 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
             
             [
-                'label' =>"YIR",
+                'label' =>"fecha",
                 'attribute' => 'YIR',
                 'value'=>function($data){
                     //print_r($data);
