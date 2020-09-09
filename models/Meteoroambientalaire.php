@@ -37,7 +37,7 @@ class Meteoroambientalaire extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'meteoroambientalaire';
+        return 'datos_arduino';
     }
 
     /**
@@ -49,9 +49,8 @@ class Meteoroambientalaire extends \yii\db\ActiveRecord
             [['fecha', 'hora'], 'required'],
             [['fecha'], 'safe'],
             [['tempAmbC', 'Humedad', 'MSNM', 'VoltajeCo', 'VoltajeOzono', 'VoltajeCO2Presente', 'PPMpercf'], 'integer'],
-            [['tempPatmos', 'patmosSnm', 'TempCenInt', 'RadioCo', 'PPMCo', 'RadioOzono', 'PPMOzono', 'VoltajeO3Presente', 'Reservado', 'VoltajeParticulas', 'DensidadPart'], 'number'],
+            [['tempPatmos', 'patmosSnm', 'estacion_id','TempCenInt', 'RadioCo', 'PPMCo', 'RadioOzono', 'PPMOzono', 'VoltajeO3Presente', 'Reservado', 'VoltajeParticulas', 'DensidadPart'], 'number'],
             [['hora'], 'string', 'max' => 5],
-            [['IPEstacion'], 'string', 'max' => 50],
         ];
     }
 
@@ -81,7 +80,7 @@ class Meteoroambientalaire extends \yii\db\ActiveRecord
             'VoltajeParticulas' => 'Voltaje Particulas',
             'DensidadPart' => 'Densidad Part',
             'PPMpercf' => 'Pp Mpercf',
-            'IPEstacion' => 'Ip Estacion',
+            'estacion_id' => 'Estacion Id',
             'entryID' => 'Entry ID',
         ];
     }

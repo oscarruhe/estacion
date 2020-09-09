@@ -31,6 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'PPMCo',
             'PPMOzono',
             'DensidadPart',
+            'estacion_id',
         ],
         'dropdownOptions' => [
             'label' => 'Exportar todo',
@@ -51,15 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'PPMCo',
             'PPMOzono',
             'DensidadPart',
-            [
-                'attribute'=>'IPEstacion',
-                'filter'=>[
-                    '148.210.123.102'=>'IIT',
-                    '148.210.123.140'=>'Clinica',
-		    '148.210.123.131'=>'AnapraViejo',
-		    '148.210.8.36:83'=>'Anapra'
-                ]
-            ],
+            ['attribute'=>'estacion_id', ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

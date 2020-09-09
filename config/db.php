@@ -2,9 +2,9 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=148.210.123.133;dbname=MYSQLDATABASE',
-    'username' => 'Laurita',
-    'password' => 'inannaenki',
+    'dsn' => 'mysql:host=148.210.68.169;dbname=clima',
+    'username' => 'climauser',
+    'password' => 'Uacj.2020!',
     'charset' => 'utf8',
 
     // Schema cache options (for production environment)

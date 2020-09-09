@@ -19,7 +19,7 @@ class MeteoroambientalaireSearch extends Meteoroambientalaire
         return [
             [['fecha', 'hora', 'IPEstacion'], 'safe'],
             [['tempAmbC', 'Humedad', 'MSNM', 'VoltajeCo', 'VoltajeOzono', 'VoltajeCO2Presente', 'PPMpercf', 'entryID'], 'integer'],
-            [['tempPatmos', 'patmosSnm', 'TempCenInt', 'RadioCo', 'PPMCo', 'RadioOzono', 'PPMOzono', 'VoltajeO3Presente', 'Reservado', 'VoltajeParticulas', 'DensidadPart'], 'number'],
+            [['tempPatmos', 'patmosSnm', 'TempCenInt', 'RadioCo', 'PPMCo', 'RadioOzono', 'PPMOzono', 'VoltajeO3Presente', 'Reservado', 'VoltajeParticulas', 'DensidadPart', 'estacion_id'], 'number'],
         ];
     }
 
