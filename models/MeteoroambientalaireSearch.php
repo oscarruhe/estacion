@@ -44,7 +44,7 @@ class MeteoroambientalaireSearch extends Meteoroambientalaire
         $query = Meteoroambientalaire::find();
 
         // add conditions that should always apply here
-        $query->select(["fecha","EXTRACT(hour from hora) hora", 'AVG(tempAmbC) tempAmbC', "AVG(Humedad) Humedad","AVG(PPMCo) PPMCo","AVG(PPMOzono) PPMOzono","AVG(DensidadPart) DensidadPart",'IPEstacion'])->groupBy("EXTRACT(hour from hora)");
+        $query->select(["fecha","EXTRACT(hour from hora) hora", 'AVG(tempAmbC) tempAmbC', "AVG(Humedad) Humedad","AVG(PPMCo) PPMCo","AVG(PPMOzono) PPMOzono","AVG(DensidadPart) DensidadPart"])->groupBy("EXTRACT(hour from hora)");
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
@@ -82,7 +82,7 @@ class MeteoroambientalaireSearch extends Meteoroambientalaire
         ]);
 
         $query->andFilterWhere(['like', 'hora', $this->hora])
-            ->andFilterWhere(['like', 'IPEstacion', $this->IPEstacion]);
+            ->andFilterWhere(['like', 'arduino_id', $this->arduino_id]);
 
         return $dataProvider;
     }
