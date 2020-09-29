@@ -75,8 +75,6 @@ class MeteoroambientalaireSearch extends Meteoroambientalaire
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'YIR' => $this->YIR,
-            'fecha' => $this->fecha,
             'tempAmbC' => $this->tempAmbC,
             'Humedad' => $this->Humedad,
             'MSNM' => $this->MSNM,
@@ -98,7 +96,8 @@ class MeteoroambientalaireSearch extends Meteoroambientalaire
             'entryID' => $this->entryID,
         ]);
 
-        $query->andFilterWhere(['like', 'arduino_id', $this->arduino_id]);
+        $query->andFilterWhere(['like', 'arduino_id', $this->arduino_id])
+            ->andFilterWhere(['like','fecha', $this->YIR]);
 
         return $dataProvider;
     }
